@@ -548,7 +548,7 @@ runcmd() {
 # fh - repeat history
 fh() {
   ([[ -n "$ZSH_NAME" ]] && fc -l 1 || history) \
-    | fzf +s --tac \
+    | fzf +s --tac -m \
     | sed -re 's/^\s*[0-9]+\s*//' \
     | runcmd
 }
@@ -561,7 +561,7 @@ writecmd() {
 # fhe - repeat history edit
 fhe() {
   ([[ -n "$ZSH_NAME" ]] && fc -l 1 || history) \
-    | fzf +s --tac \
+    | fzf +s --tac -m \
     | sed -re 's/^\s*[0-9]+\s*//' \
     | writecmd
 }
